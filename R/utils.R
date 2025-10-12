@@ -110,6 +110,8 @@ mostra_data_build <- function() {
   if (nzchar(build_time)) {
     # Converte la stringa ISO in oggetto POSIXct
     build_time <- as.POSIXct(build_time, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
+    build_time_local <- format(build_time, "%d %B %Y, ore %H:%M",
+                               tz = "Europe/Rome", usetz = TRUE)
     
     # Stampa HTML formattato con data leggibile
     cat(
@@ -117,7 +119,7 @@ mostra_data_build <- function() {
         '<p style="text-align:center; font-size: 0.9em; color: #555;">
         Ultimo aggiornamento automatico: <strong>%s UTC</strong>
         </p>',
-        format(build_time, "%d %B %Y, ore %H:%M")
+        build_time_local
       )
     )
   } else {

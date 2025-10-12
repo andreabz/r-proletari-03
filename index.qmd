@@ -67,10 +67,10 @@ Le fasi principali del processo sono:
 
 ## Attenzione
 
-Compagno, ricordati che questo progetto è dimostrativo e satirico.  
+Compagno, ricordati che questo progetto è solo dimostrativo.  
 Se desideri consultare i dati ufficiali, rivolgiti ai [bollettini ufficiali di ARPA Emilia-Romagna](https://www.arpae.it/it/temi-ambientali/aria/dati-qualita-aria).  
 
-L'obiettivo è mostrare la potenza collettiva di `R`, `Quarto` e dell'automazione open source!
+L'obiettivo è mostrare la potenza di `R`, `Quarto` e dell'automazione open source!
 
 :::
 
