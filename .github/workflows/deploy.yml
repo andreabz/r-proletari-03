@@ -5,6 +5,8 @@ on:
   schedule:
     # ogni giorno alle 02:00 (ora UTC, quindi 04:00 italiane)
     - cron: '0 2 * * *'
+  env:
+  BUILD_TIMESTAMP: ${{ github.run_started_at }}
 
 name: Quarto Publish
 
@@ -50,6 +52,5 @@ jobs:
         with:
           target: gh-pages
           path: .
-          execute-params: build_timestamp=${{ github.run_started_at }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
