@@ -78,3 +78,52 @@ slugify <- function(x) {
   x <- gsub("ì", "i", x)
   x
 }
+
+#' @title Mostra la data e l'ora dell'ultimo aggiornamento automatico
+#' @description
+#' Legge la data/ora di build dal sistema o da una variabile d'ambiente impostata
+#' (ad esempio da una GitHub Action) e restituisce una riga HTML che indica
+#' l'ultimo aggiornamento automatico del sito o dei report.
+#'
+#' Se la variabile d'ambiente `GITHUB_RUN_TIMESTAMP` non è impostata, mostra un
+#' messaggio di fallback con "dato non disponibile".
+#'
+#' @details
+#' La funzione è pensata per essere inclusa all’interno di documenti Quarto (`.qmd`)
+#' o report HTML. Il testo è formattato in modo discreto, con caratteri piccoli e
+#' colorazione neutra.
+#'
+#' @return
+#' Nessun valore restituito: la funzione produce direttamente un output HTML
+#' mediante `cat()`.
+#'
+#' @examples
+#' \dontrun{
+#'   mostra_data_build()
+#' }
+#'
+#' @export
+mostra_data_build <- function() {
+  # Legge la data/ora di build dalla variabile d'ambiente impostata nella GitHub Action
+  build_time <- Sys.getenv("GITHUB_RUN_TIMESTAMP")
+  
+  if (nzchar(build_time)) {
+    # Converte la stringa ISO in oggetto POSIXct
+    build_time <- as.POSIXct(build_time, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
+    
+    # Stampa HTML formattato con data leggibile
+    cat(
+      sprintf(
+        '<p style="text-align:center; font-size: 0.9em; color: #555;">
+        Ultimo aggiornamento automatico: <strong>%s UTC</strong>
+        </p>',
+        format(build_time, "%d %B %Y, ore %H:%M")
+      )
+    )
+  } else {
+    # Caso in cui la variabile non sia disponibile
+    cat('<p style="text-align:center; font-size: 0.9em; color: #555;">
+         Ultimo aggiornamento automatico: <strong>dato non disponibile</strong>
+         </p>')
+  }
+}

@@ -42,7 +42,9 @@ Clicca su una provincia per consultare il bollettino locale approvato dal GosAtm
   ```{r}
   #| label: mappa_svg
   #| output: asis
-  cat(readLines("www/mappa_svg.html"))
+  here("www", "mappa.html") |> 
+    readLines() |> 
+    cat()
   ```
   <link rel="stylesheet" href="www/mappa.css" />
   <script src="www/mappa.js"></script>
@@ -80,21 +82,8 @@ L'obiettivo è mostrare la potenza collettiva di `R`, `Quarto` e dell'automazion
   #| label: last_update
   #| output: asis
   
-  # Legge la data/ora di build dalla variabile d'ambiente impostata nella GitHub Action
-  build_time <- Sys.getenv("GITHUB_RUN_TIMESTAMP")  # esempio, vedremo come impostarla
-  if (nzchar(build_time)) {
-    build_time <- as.POSIXct(build_time, format="%Y-%m-%dT%H:%M:%SZ", tz="UTC")
-    cat(
-      sprintf(
-        '<p style="text-align:center; font-size: 0.9em; color: #555;">
-        Ultimo aggiornamento automatico: <strong>%s UTC</strong>
-        </p>',
-        format(build_time, "%d %B %Y, ore %H:%M")
-      )
-    )
-  } else {
-    cat('<p style="text-align:center; font-size: 0.9em; color: #555;"> Ultimo aggiornamento automatico: <strong>dato non disponibile</strong></p>')
-  }
+  # data dell'ultimo aggiornamento
+  mostra_data_build()
   ```
 ```
 
