@@ -181,8 +181,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduzione" class="level2">
 <h2 class="anchored" data-anchor-id="introduzione">Introduzione</h2>
-<p>Compagno, benvenuto! Questo sito è nato per dimostrare come noi proletari della tastiera possiamo automatizzare la creazione e l’aggiornamento di report ripetitivi, liberandoci dal gioco di Excel e ottenendo più tempo per studiare il Capitale… o la Gazzetta dello sport.</p>
-<p>Tutto il codice utilizzato è su <a href="https://github.com/andreabz/r-proletari-03">Github</a>, mentre su <a href="https://it.linkedin.com/in/andreabazzano/">LinkedIn</a> ci sono le spiegazioni di brevi porzioni di codice commentate come avrebbe fatto il compagno Mao!</p>
+<p>Compagno, benvenuto! Questo sito dimostra come noi proletari della tastiera possiamo automatizzare la creazione e l’aggiornamento di report ripetitivi, liberandoci dal giogo di Excel e conquistando più tempo per studiare Il Capitale… o la Gazzetta dello sport.</p>
+<p>Tutto il codice utilizzato è su <a href="https://github.com/andreabz/r-proletari-03">Github</a>, mentre su <a href="https://it.linkedin.com/in/andreabazzano/">LinkedIn</a> trovi spiegazioni e commenti in puro stile maoista, per ogni porzione di codice.</p>
 </section>
 <section id="mappa-delle-province" class="level2">
 <h2 class="anchored" data-anchor-id="mappa-delle-province">Mappa delle province</h2>
@@ -196,14 +196,34 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="come-funziona" class="level2">
 <h2 class="anchored" data-anchor-id="come-funziona">Come funziona</h2>
-<p>Ogni report è generato automaticamente alle due di notte e riporta i dati di due giorni prima, grazie a <code>R</code>, alla funzione <code>R/render_reports.R</code> e GitHub Actions:</p>
+<p>Ogni report è generato automaticamente alle 2:00 di notte, riportando i dati di due giorni prima, grazie alla collaborazione tra <code>R</code>, lo script <code>R/render_reports.R</code> e GitHub Actions.</p>
+<p>Le fasi principali del processo sono:</p>
 <ul>
-<li>i dati sono scaricati dall’API pubblica messa a disposizione dai compagni di <a href="https://dati.arpae.it/api/3/action/datastore_search?resource_id=4dc855a1-6298-4b71-a1ae-d80693d43dcb&amp;limit=5">ARPA Emilia-Romagna</a>;</li>
-<li>si aggiunge contesto con le anagrafiche delle stazioni;</li>
-<li>analizziamo i dati confrontanto i valori con i limiti normativi e creando grafici;</li>
-<li>produciamo report statici in formato HTML e li pubblichiamo su GitHub Pages.</li>
+<li>Scaricamento dei dati dalle API pubbliche dei compagni di <a href="https://dati.arpae.it/api/3/action/datastore_search?resource_id=4dc855a1-6298-4b71-a1ae-d80693d43dcb&amp;limit=5">ARPA Emilia-Romagna</a>.</li>
+<li>Arricchimento dei dati con le anagrafiche delle stazioni di monitoraggio.</li>
+<li>Analisi e confronto con i limiti normativi del<br>
+<a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2010-08-13;155">D.Lgs. 155/2010</a>.</li>
+<li>Produzione automatica dei report provinciali in formato HTML.</li>
+<li>Pubblicazione dei bollettini aggiornati su GitHub Pages.</li>
 </ul>
-<p>Compagno ricordati che si tratta di un progetto dimostrativo in chiave satirica: se vuoi dati veri, consulta i bollettini ufficiali della qualità dell’aria</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Attenzione
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Compagno, ricordati che questo progetto è dimostrativo e satirico.<br>
+Se desideri consultare i dati ufficiali, rivolgiti ai <a href="https://www.arpae.it/it/temi-ambientali/aria/dati-qualita-aria">bollettini ufficiali di ARPA Emilia-Romagna</a>.</p>
+<p>L’obiettivo è mostrare la potenza collettiva di <code>R</code>, <code>Quarto</code> e dell’automazione open source!</p>
+</div>
+</div>
+<p></p>
+
+  <p style="text-align:center; font-size: 0.9em; color: #555;"> Ultimo aggiornamento automatico: <strong>dato non disponibile</strong></p>
 <footer class="copyright">
   © 2025 Andrea Bazzano — <a href="https://www.linkedin.com/in/andreabazzano/" target="_blank">LinkedIn</a> | <a href="https://github.com/andreabz" target="_blank">GitHub</a> — Licenza CC-SA
 </footer>
@@ -284,7 +304,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/andreabz\.github\.io\/r-proletari-03\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

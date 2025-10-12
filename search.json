@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "R per proletari",
     "section": "",
-    "text": "Compagno, benvenuto! Questo sito è nato per dimostrare come noi proletari della tastiera possiamo automatizzare la creazione e l’aggiornamento di report ripetitivi, liberandoci dal gioco di Excel e ottenendo più tempo per studiare il Capitale… o la Gazzetta dello sport.\nTutto il codice utilizzato è su Github, mentre su LinkedIn ci sono le spiegazioni di brevi porzioni di codice commentate come avrebbe fatto il compagno Mao!"
+    "text": "Compagno, benvenuto! Questo sito dimostra come noi proletari della tastiera possiamo automatizzare la creazione e l’aggiornamento di report ripetitivi, liberandoci dal giogo di Excel e conquistando più tempo per studiare Il Capitale… o la Gazzetta dello sport.\nTutto il codice utilizzato è su Github, mentre su LinkedIn trovi spiegazioni e commenti in puro stile maoista, per ogni porzione di codice."
   },
   {
     "objectID": "index.html#introduzione",
     "href": "index.html#introduzione",
     "title": "R per proletari",
     "section": "",
-    "text": "Compagno, benvenuto! Questo sito è nato per dimostrare come noi proletari della tastiera possiamo automatizzare la creazione e l’aggiornamento di report ripetitivi, liberandoci dal gioco di Excel e ottenendo più tempo per studiare il Capitale… o la Gazzetta dello sport.\nTutto il codice utilizzato è su Github, mentre su LinkedIn ci sono le spiegazioni di brevi porzioni di codice commentate come avrebbe fatto il compagno Mao!"
+    "text": "Compagno, benvenuto! Questo sito dimostra come noi proletari della tastiera possiamo automatizzare la creazione e l’aggiornamento di report ripetitivi, liberandoci dal giogo di Excel e conquistando più tempo per studiare Il Capitale… o la Gazzetta dello sport.\nTutto il codice utilizzato è su Github, mentre su LinkedIn trovi spiegazioni e commenti in puro stile maoista, per ogni porzione di codice."
   },
   {
     "objectID": "index.html#mappa-delle-province",
@@ -25,7 +25,7 @@
     "href": "index.html#come-funziona",
     "title": "R per proletari",
     "section": "Come funziona",
-    "text": "Come funziona\nOgni report è generato automaticamente alle due di notte e riporta i dati di due giorni prima, grazie a R, alla funzione R/render_reports.R e GitHub Actions:\n\ni dati sono scaricati dall’API pubblica messa a disposizione dai compagni di ARPA Emilia-Romagna;\nsi aggiunge contesto con le anagrafiche delle stazioni;\nanalizziamo i dati confrontanto i valori con i limiti normativi e creando grafici;\nproduciamo report statici in formato HTML e li pubblichiamo su GitHub Pages.\n\nCompagno ricordati che si tratta di un progetto dimostrativo in chiave satirica: se vuoi dati veri, consulta i bollettini ufficiali della qualità dell’aria\n\n  © 2025 Andrea Bazzano — LinkedIn | GitHub — Licenza CC-SA"
+    "text": "Come funziona\nOgni report è generato automaticamente alle 2:00 di notte, riportando i dati di due giorni prima, grazie alla collaborazione tra R, lo script R/render_reports.R e GitHub Actions.\nLe fasi principali del processo sono:\n\nScaricamento dei dati dalle API pubbliche dei compagni di ARPA Emilia-Romagna.\nArricchimento dei dati con le anagrafiche delle stazioni di monitoraggio.\nAnalisi e confronto con i limiti normativi del\nD.Lgs. 155/2010.\nProduzione automatica dei report provinciali in formato HTML.\nPubblicazione dei bollettini aggiornati su GitHub Pages.\n\n\n\n\n\n\n\nAttenzione\n\n\n\nCompagno, ricordati che questo progetto è dimostrativo e satirico.\nSe desideri consultare i dati ufficiali, rivolgiti ai bollettini ufficiali di ARPA Emilia-Romagna.\nL’obiettivo è mostrare la potenza collettiva di R, Quarto e dell’automazione open source!\n\n\n\n\n   Ultimo aggiornamento automatico: dato non disponibile\n\n  © 2025 Andrea Bazzano — LinkedIn | GitHub — Licenza CC-SA"
   },
   {
     "objectID": "province/template.html",

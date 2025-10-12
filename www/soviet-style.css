@@ -1,6 +1,10 @@
 /* =============================== */
-/* Import font sovietico Impact da Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Impact&display=swap');
+@font-face {
+  font-family: 'Anton';
+  src: url('fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* =============================== */
 /* Stile base per il body */
@@ -15,7 +19,7 @@ body {
 /* =============================== */
 /* Titoli "sovietici" */
 h1, h2, h3, h4, h5 {
-  font-family: 'Impact', sans-serif;
+  font-family: 'Anton', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #BA1212;
@@ -75,7 +79,7 @@ h1, h2, h3, h4, h5 {
 /* =============================== */
 /* Stile titolo principale */
 .quarto-title-block h1.title {
-  font-family: 'Impact', sans-serif;
+  font-family: 'Anton', sans-serif;
   color: #BA1212;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -186,4 +190,26 @@ blockquote footer {
   font-weight: 400;
   font-size: 0.9rem;
   margin-top: 0.3rem;
+}
+
+/* Callout sovietico */
+.callout-warning {
+  border-left: 6px solid #BA1212 !important;
+  background-color: #fff5f5 !important;
+  color: #660000 !important;
+  font-weight: 500;
+  box-shadow: 0 0 6px rgba(204, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+.callout-warning h2, 
+.callout-warning h3 {
+  color: #BA1212 !important;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.callout-warning p:last-child {
+  margin-bottom: 0;
 }
