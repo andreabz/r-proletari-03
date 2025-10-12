@@ -1,0 +1,52 @@
+# --- R e renv ---
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.Rapp.history
+.Rprofile
+.Renviron
+
+# --- Quarto / build output ---
+/.quarto/
+*.html
+*.pdf
+*.docx
+*.log
+*.aux
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+
+# --- Directory di output dei render ---
+/_site/
+/docs/
+/output/
+/img/
+/figure-html/
+/cache/
+
+# --- renv cache e lock temporanei ---
+/renv/library/
+/renv/staging/
+/renv/python/
+
+# --- Sistemi operativi ---
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+# --- IDE ---
+.vscode/
+.idea/
+*.Rproj
+
+# --- Altri file temporanei ---
+*.bak
+*.old
+*.tmp
+*.zip
+*.tar.gz

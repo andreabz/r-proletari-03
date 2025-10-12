@@ -1,0 +1,88 @@
+---
+title: "R per proletari"
+logo: www/rproletari.png
+subtitle: "Bollettino della qualità dell'aria per il glorioso popolo lavoratore"
+params:
+  provincia: "RE"
+  data: "06/09/2025"
+---
+
+```{r}
+#| label: librerie
+
+# carico le librerie necessarie per il progetto
+library(here)
+library(data.table)
+library(httr2)
+library(ggplot2)
+library(quarto)
+```
+
+```{r}
+#| label: script
+
+source(here("R", "utils.R"))
+source(here("R", "data_download.R"))
+source(here("R", "data_anagrafiche.R"))
+source(here("R", "analisi_numerica.R"))
+source(here("R", "analisi_grafica.R"))
+source(here("R", "report_helper.R"))
+```
+
+```{r}
+#| label: variabili
+
+# definisco alcune variabili globali utilizzate dal progetto
+prov_sigla <- params$provincia                        # sigla di Reggio Emilia
+data_selezionata <- params$data                       # data scelta
+dataset_id <- "4dc855a1-6298-4b71-a1ae-d80693d43dcb"  # ID della risorsa CKAN
+limit <- 1000                                         # records per chiamata all'API
+log_file <- here("data", "log_download.csv")          # file di log
+```
+
+```{r}
+#| label: carico_dati
+#| message: false
+
+# 1. Carico le anagrafiche e filtro per provincia
+anagrafiche <- carica_anagrafiche(prov_sigla = prov_sigla)
+provincia <- carica_provincia(sigla = prov_sigla)
+
+# 2. Scarico i dati per quelle stazioni
+dati_api <- scarica_dati_sql(
+  dataset_id = "4dc855a1-6298-4b71-a1ae-d80693d43dcb",
+  stazioni_selezionate = anagrafiche$stazioni_selezionate,
+  data_selezionata = params$data
+)
+
+# 3. Merge con anagrafiche
+dati <- merge(
+  dati_api,
+  anagrafiche$anagrafica_stazioni,
+  by.x = c("station_id", "variable_id"),
+  by.y = c("cod_staz", "id_param")
+)
+# perdiamo per strada alcuni dati relativi a:
+# ozono (O3) misurato presso la centralina S. Lazzaro
+# o-xilene (C6H4(CH3)2) presso la centrlina Timavo,
+# però non è colpa nostra: i compagni probabilmente non hanno aggiornati i file
+# csv di appoggio.
+
+```
+
+```{r}
+#| label: results
+#| output: asis
+
+cat(paste("\n\n## Risultati del", data_selezionata,
+          "per la provincia di", provincia, "\n\n"))
+
+report <- report_giornaliero(dati)
+report_giornaliero_sezioni(report, dati)
+```
+
+```{=html}
+<footer class="copyright">
+  &copy; 2025 Andrea Bazzano — <a href="https://www.linkedin.com/in/andreabazzano/" target="_blank">LinkedIn</a> | <a href="https://github.com/andreabz" target="_blank">GitHub</a> — Licenza CC-SA
+</footer>
+```

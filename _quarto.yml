@@ -1,0 +1,62 @@
+project:
+  type: website
+  output-dir: docs   # fondamentale per GitHub Pages
+
+website:
+  title: "R per proletari"
+  navbar:
+    background: "#BA1212"
+    foreground: "#fada5e"
+    left:
+      - href: index.qmd
+        text: Casa del popolo
+      - text: Province
+        menu:
+          - href: province/bologna.html
+            text: Bologna
+          - href: province/ferrara.html
+            text: Ferrara
+          - href: province/modena.html
+            text: Modena
+          - href: province/parma.html
+            text: Parma
+          - href: province/piacenza.html
+            text: Piacenza
+          - href: province/ravenna.html
+            text: Ravenna
+          - href: province/reggio_emilia.html
+            text: Reggio Emilia
+          - href: province/rimini.html
+            text: Rimini
+          - href: province/forli_cesena.html
+            text: Forlì-Cesena
+    tools:
+      - icon: github
+        href: https://github.com/andreabz/r-proletari-03
+      - icon: linkedin
+        href: https://it.linkedin.com/in/andreabazzano/
+
+format:
+  html:
+    description:
+    - "Proletari della tastiera, liberatevi dal giogo del copia-incolla<br>"
+    - "Respingete i fogli di calcolo borghesi!"
+    theme: cosmo
+    toc-depth: 2
+    smooth-scroll: true
+    css: www/soviet-style.css
+    lightbox: true
+    
+highlight: null
+fontsize: 12pt
+geometry: a4paper
+    
+execute: 
+  echo: false
+  warning: false
+  error: false
+  
+lang: it
+  
+
+

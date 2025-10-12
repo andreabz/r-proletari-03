@@ -1,0 +1,189 @@
+/* =============================== */
+/* Import font sovietico Impact da Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Impact&display=swap');
+
+/* =============================== */
+/* Stile base per il body */
+body {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #111;
+  background-color: #fff;
+}
+
+/* =============================== */
+/* Titoli "sovietici" */
+h1, h2, h3, h4, h5 {
+  font-family: 'Impact', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #BA1212;
+}
+
+/* =============================== */
+/* Sottotitolo */
+.quarto-title-block p.subtitle {
+  font-style: italic;
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  color: #BA1212;
+  margin-top: 0;
+}
+
+/* =============================== */
+/* Nascondi completamente l'autore */
+.quarto-title-meta {
+  display: none !important;
+}
+
+/* =============================== */
+/* Contenitore principale del blocco titolo */
+.quarto-title-block {
+  position: relative;
+  padding-left: 240px; /* spazio per logo 200px + margine */
+  border-bottom: 3px solid #BA1212;
+  margin-bottom: 2rem;
+}
+
+/* =============================== */
+/* Logo a sinistra (pseudo-elemento) */
+.quarto-title-block::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 200px;
+  height: 200px;
+  background-image: url(rproletari.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 2;
+}
+
+/* =============================== */
+/* Wrapper testo titolo + sottotitolo + description in colonna */
+.quarto-title-text {
+  display: flex;
+  flex-direction: column;  /* impila verticalmente */
+  gap: 0.3rem;
+  max-width: 800px;        /* larghezza massima per leggibilità */
+}
+
+/* =============================== */
+/* Stile titolo principale */
+.quarto-title-block h1.title {
+  font-family: 'Impact', sans-serif;
+  color: #BA1212;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 2.5rem;
+  margin-bottom: 0.2rem;
+}
+
+/* =============================== */
+/* Stile description (testo sotto sottotitolo) */
+.description {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: #444;
+  margin-top: 0.5rem;
+  /* importante: forziamo la description a stare sotto con block */
+  display: block;
+}
+
+/* =============================== */
+/* Nasconde i link "other formats" */
+.quarto-navigation-tools {
+  display: none !important;
+}
+
+/* =============================== */
+/* Stile copyright */
+.copyright {
+  display: block !important;
+  text-align: left !important;
+  margin-top: 1rem !important;
+  margin-left: 240px !important; /* allineamento con il testo del titolo */
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.copyright a {
+  color: #BA1212;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.copyright a:hover {
+  text-decoration: underline;
+}
+
+/* Contenitore per lo scroll orizzontale delle tabelle */
+body > table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch; /* scroll fluido su mobile */
+}
+
+/* Stile per tutte le tabelle */
+table {
+  min-width: 500px; /* larghezza minima per evitare spezzamenti indesiderati */
+  width: auto;
+  table-layout: auto; /* larghezza adattiva */
+  border-collapse: collapse;
+}
+
+/* Celle intestazioni e dati */
+th, td {
+  min-width: 90px; /* larghezza minima delle celle per una buona leggibilità */
+  white-space: normal; /* permette il wrapping del testo */
+  word-wrap: break-word; /* spezza parole troppo lunghe */
+  padding: 6px 12px;
+}
+
+/* Dropdown menu soviet-style */
+.navbar .dropdown-menu {
+  background-color: #BA1212; /* rosso sovietico */
+  color: #fada5e;             /* giallo */
+  border: none;
+}
+
+/* Link del dropdown */
+.navbar .dropdown-menu a {
+  color: #fada5e;
+}
+
+/* Hover sugli elementi del menu */
+.navbar .dropdown-menu a:hover {
+  background-color: #9c0f0f; /* un rosso più scuro per hover */
+  color: #ffffff;            /* bianco per visibilità */
+}
+
+/* === BLOCCO CITAZIONE SEMPLICE SOVIET === */
+blockquote {
+  border-left: 4px solid #BA1212;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: #BA1212;
+  font-weight: 600;
+  font-family: "Arial", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+blockquote p {
+  margin: 0.2rem 0;
+}
+
+blockquote footer {
+  color: #BA1212;
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}

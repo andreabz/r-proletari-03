@@ -1,0 +1,42 @@
+/* Stile base dei path dentro province */
+.province path {
+  fill: #7A7A7A !important; /* per sovrascrivere gli inline */
+  stroke: #2b0000 !important;
+  stroke-width: 0.5 !important;
+  stroke-linejoin: round !important;
+  cursor: pointer;
+  transition: fill 0.2s ease;
+}
+
+/* Quando si passa col mouse sul gruppo <g> .province, i path diventano rossi */
+.province:hover path {
+  fill: #BA1212 !important;         /* rosso sovietico */
+  stroke: #fada5e !important
+  stroke-width: 1.2 !important;
+}
+
+/* Stile tooltip */
+.tooltip-provincia {
+  position: absolute;
+  background: #BA1212;            /* rosso */
+  color: #fada5e;                 /* giallo */
+  padding: 6px 12px;
+  border: 2px solid #fada5e;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Impact', sans-serif;  /* oppure Red October se caricato */
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 1000;
+  display: none;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+    
+.mappa-container iframe {
+  width: 100%;
+  height: 80vh;      /* usa una frazione dell’altezza della finestra */
+  max-width: 1200px;
+  border: none;
+}

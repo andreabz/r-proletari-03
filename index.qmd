@@ -1,0 +1,66 @@
+---
+title: "R per proletari"
+logo: www/rproletari.png
+subtitle: "Bollettino della qualità dell'aria per il glorioso popolo lavoratore"
+---
+
+```{r}
+#| label: librerie
+
+# carico le librerie necessarie per il progetto
+library(here)
+library(data.table)
+library(httr2)
+library(ggplot2)
+library(quarto)
+```
+
+```{r}
+#| label: script
+
+source(here("R", "utils.R"))
+source(here("R", "data_download.R"))
+source(here("R", "data_anagrafiche.R"))
+source(here("R", "analisi_numerica.R"))
+source(here("R", "analisi_grafica.R"))
+source(here("R", "report_helper.R"))
+```
+
+## Introduzione
+
+Compagno, benvenuto! Questo sito è nato per dimostrare come noi proletari della tastiera possiamo automatizzare la creazione e l'aggiornamento di report ripetitivi, liberandoci dal gioco di Excel e ottenendo più tempo per studiare il Capitale... o la Gazzetta dello sport.
+
+Tutto il codice utilizzato è su [Github](https://github.com/andreabz/r-proletari-03), mentre su [LinkedIn](https://it.linkedin.com/in/andreabazzano/) ci sono le spiegazioni di brevi porzioni di codice commentate come avrebbe fatto il compagno Mao!
+
+## Mappa delle province
+
+Clicca su una provincia per consultare il bollettino locale approvato dal GosAtmoNadzor - il Comitato Supremo per la Sorveglianza dell'Aria Popolare.
+
+> Al popolo ossigeno, cloro al capitale!
+
+```{=html}
+  ```{r}
+  #| label: mappa_svg
+  #| output: asis
+  cat(readLines("www/mappa_svg.html"))
+  ```
+  <link rel="stylesheet" href="www/mappa.css" />
+  <script src="www/mappa.js"></script>
+```
+
+## Come funziona
+
+Ogni report è generato automaticamente alle due di notte e riporta i dati di due giorni prima, grazie a `R`, alla funzione `R/render_reports.R` e GitHub Actions:
+
+- i dati sono scaricati dall'API pubblica messa a disposizione dai compagni di [ARPA Emilia-Romagna](https://dati.arpae.it/api/3/action/datastore_search?resource_id=4dc855a1-6298-4b71-a1ae-d80693d43dcb&limit=5);
+- si aggiunge contesto con le anagrafiche delle stazioni;
+- analizziamo i dati confrontanto i valori con i limiti normativi e creando grafici;
+- produciamo report statici in formato HTML e li pubblichiamo su GitHub Pages.
+
+Compagno ricordati che si tratta di un progetto dimostrativo in chiave satirica: se vuoi dati veri, consulta i bollettini ufficiali della qualità dell'aria
+
+```{=html}
+<footer class="copyright">
+  &copy; 2025 Andrea Bazzano — <a href="https://www.linkedin.com/in/andreabazzano/" target="_blank">LinkedIn</a> | <a href="https://github.com/andreabz" target="_blank">GitHub</a> — Licenza CC-SA
+</footer>
+```
