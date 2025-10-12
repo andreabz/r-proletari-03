@@ -13,9 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      
-    env:
-      GITHUB_RUN_TIMESTAMP: ${{ github.run_started_at }}
 
     steps:
       - name: Check out repository
@@ -53,5 +50,6 @@ jobs:
         with:
           target: gh-pages
           path: .
+          execute-params: build_timestamp=${{ github.run_started_at }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

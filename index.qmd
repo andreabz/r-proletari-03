@@ -2,6 +2,8 @@
 title: "R per proletari"
 logo: www/rproletari.png
 subtitle: "Bollettino della qualità dell'aria per il glorioso popolo lavoratore"
+params:
+  build_timestamp: ""
 ---
 
 ```{r}
@@ -83,7 +85,7 @@ L'obiettivo è mostrare la potenza di `R`, `Quarto` e dell'automazione open sour
   #| output: asis
   
   # data dell'ultimo aggiornamento
-  mostra_data_build()
+  mostra_data_build(params$build_timestamp)
   ```
 ```
 

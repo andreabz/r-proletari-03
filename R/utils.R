@@ -103,9 +103,7 @@ slugify <- function(x) {
 #' }
 #'
 #' @export
-mostra_data_build <- function() {
-  # Legge la data/ora di build dalla variabile d'ambiente impostata nella GitHub Action
-  build_time <- Sys.getenv("GITHUB_RUN_TIMESTAMP")
+mostra_data_build <- function(build_time) {
   
   if (nzchar(build_time)) {
     # Converte la stringa ISO in oggetto POSIXct
