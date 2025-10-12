@@ -5,8 +5,6 @@ on:
   schedule:
     # ogni giorno alle 02:00 (ora UTC, quindi 04:00 italiane)
     - cron: '0 2 * * *'
-  env:
-    BUILD_TIMESTAMP: ${{ github.run_started_at }}
 
 name: Quarto Publish
 
@@ -15,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      BUILD_TIMESTAMP: ${{ github.run_started_at }}
 
     steps:
       - name: Check out repository
