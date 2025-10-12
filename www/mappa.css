@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Anton';
+  src: url('fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Stile base dei path dentro province */
 .province path {
   fill: #7A7A7A !important; /* per sovrascrivere gli inline */
@@ -26,7 +33,7 @@
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
-  font-family: 'Impact', sans-serif;  /* oppure Red October se caricato */
+  font-family: 'Anton', sans-serif;  /* oppure Red October se caricato */
   pointer-events: none;
   white-space: nowrap;
   z-index: 1000;
