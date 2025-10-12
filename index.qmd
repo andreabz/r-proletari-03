@@ -28,9 +28,9 @@ source(here("R", "report_helper.R"))
 
 ## Introduzione
 
-Compagno, benvenuto! Questo sito è nato per dimostrare come noi proletari della tastiera possiamo automatizzare la creazione e l'aggiornamento di report ripetitivi, liberandoci dal gioco di Excel e ottenendo più tempo per studiare il Capitale... o la Gazzetta dello sport.
+Compagno, benvenuto! Questo sito dimostra come noi proletari della tastiera possiamo automatizzare la creazione e l'aggiornamento di report ripetitivi, liberandoci dal giogo di Excel e conquistando più tempo per studiare Il Capitale... o la Gazzetta dello sport.
 
-Tutto il codice utilizzato è su [Github](https://github.com/andreabz/r-proletari-03), mentre su [LinkedIn](https://it.linkedin.com/in/andreabazzano/) ci sono le spiegazioni di brevi porzioni di codice commentate come avrebbe fatto il compagno Mao!
+Tutto il codice utilizzato è su [Github](https://github.com/andreabz/r-proletari-03), mentre su [LinkedIn](https://it.linkedin.com/in/andreabazzano/) trovi spiegazioni e commenti in puro stile maoista, per ogni porzione di codice.
 
 ## Mappa delle province
 
@@ -50,14 +50,54 @@ Clicca su una provincia per consultare il bollettino locale approvato dal GosAtm
 
 ## Come funziona
 
-Ogni report è generato automaticamente alle due di notte e riporta i dati di due giorni prima, grazie a `R`, alla funzione `R/render_reports.R` e GitHub Actions:
+Ogni report è generato automaticamente alle 2:00 di notte, riportando i dati di due giorni prima, grazie alla collaborazione tra `R`, lo script `R/render_reports.R` e GitHub Actions.
 
-- i dati sono scaricati dall'API pubblica messa a disposizione dai compagni di [ARPA Emilia-Romagna](https://dati.arpae.it/api/3/action/datastore_search?resource_id=4dc855a1-6298-4b71-a1ae-d80693d43dcb&limit=5);
-- si aggiunge contesto con le anagrafiche delle stazioni;
-- analizziamo i dati confrontanto i valori con i limiti normativi e creando grafici;
-- produciamo report statici in formato HTML e li pubblichiamo su GitHub Pages.
+Le fasi principali del processo sono:
 
-Compagno ricordati che si tratta di un progetto dimostrativo in chiave satirica: se vuoi dati veri, consulta i bollettini ufficiali della qualità dell'aria
+- Scaricamento dei dati dalle API pubbliche dei compagni di [ARPA Emilia-Romagna](https://dati.arpae.it/api/3/action/datastore_search?resource_id=4dc855a1-6298-4b71-a1ae-d80693d43dcb&limit=5).
+- Arricchimento dei dati con le anagrafiche delle stazioni di monitoraggio.
+- Analisi e confronto con i limiti normativi del  
+   [D.Lgs. 155/2010](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2010-08-13;155).
+- Produzione automatica dei report provinciali in formato HTML.
+- Pubblicazione dei bollettini aggiornati su GitHub Pages.
+
+::: {.callout-warning icon=false}
+
+## Attenzione
+
+Compagno, ricordati che questo progetto è dimostrativo e satirico.  
+Se desideri consultare i dati ufficiali, rivolgiti ai [bollettini ufficiali di ARPA Emilia-Romagna](https://www.arpae.it/it/temi-ambientali/aria/dati-qualita-aria).  
+
+L'obiettivo è mostrare la potenza collettiva di `R`, `Quarto` e dell'automazione open source!
+
+:::
+
+
+```{=html}
+<p></p>
+
+  ```{r}
+  #| label: last_update
+  #| output: asis
+  
+  # Legge la data/ora di build dalla variabile d'ambiente impostata nella GitHub Action
+  build_time <- Sys.getenv("GITHUB_RUN_TIMESTAMP")  # esempio, vedremo come impostarla
+  if (nzchar(build_time)) {
+    build_time <- as.POSIXct(build_time, format="%Y-%m-%dT%H:%M:%SZ", tz="UTC")
+    cat(
+      sprintf(
+        '<p style="text-align:center; font-size: 0.9em; color: #555;">
+        Ultimo aggiornamento automatico: <strong>%s UTC</strong>
+        </p>',
+        format(build_time, "%d %B %Y, ore %H:%M")
+      )
+    )
+  } else {
+    cat('<p style="text-align:center; font-size: 0.9em; color: #555;"> Ultimo aggiornamento automatico: <strong>dato non disponibile</strong></p>')
+  }
+  ```
+```
+
 
 ```{=html}
 <footer class="copyright">

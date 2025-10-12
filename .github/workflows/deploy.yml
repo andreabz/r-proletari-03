@@ -52,3 +52,4 @@ jobs:
           path: .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_RUN_TIMESTAMP: ${{ github.run_started_at }}
