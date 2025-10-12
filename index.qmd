@@ -75,18 +75,6 @@ L'obiettivo è mostrare la potenza di `R`, `Quarto` e dell'automazione open sour
 :::
 
 
-```{=html}
-<p></p>
-
-  ```{r}
-  #| label: last_update
-  #| output: asis
-  
-  # data dell'ultimo aggiornamento
-  mostra_data_build(Sys.getenv("BUILD_TIMESTAMP"))
-  ```
-```
-
 
 ```{=html}
 <footer class="copyright">
