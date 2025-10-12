@@ -50,3 +50,9 @@ Thumbs.db
 *.tmp
 *.zip
 *.tar.gz
+
+# --- Eccezioni per file statici da pubblicare ---
+!www/
+!www/*.html
+!www/*.css
+!www/*.js
