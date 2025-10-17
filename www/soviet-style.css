@@ -1,4 +1,5 @@
 /* =============================== */
+/* Font Anton per titoli */
 @font-face {
   font-family: 'Anton';
   src: url('fonts/Anton-Regular.ttf') format('truetype');
@@ -7,7 +8,7 @@
 }
 
 /* =============================== */
-/* Stile base per il body */
+/* Stile base body */
 body {
   font-family: Georgia, serif;
   font-size: 1rem;
@@ -36,22 +37,21 @@ h1, h2, h3, h4, h5 {
 }
 
 /* =============================== */
-/* Nascondi completamente l'autore */
+/* Nascondi autore */
 .quarto-title-meta {
   display: none !important;
 }
 
 /* =============================== */
-/* Contenitore principale del blocco titolo */
+/* Contenitore principale titolo */
 .quarto-title-block {
   position: relative;
-  padding-left: 240px; /* spazio per logo 200px + margine */
+  padding-left: 240px;
   border-bottom: 3px solid #BA1212;
   margin-bottom: 2rem;
 }
 
-/* =============================== */
-/* Logo a sinistra (pseudo-elemento) */
+/* Logo a sinistra */
 .quarto-title-block::before {
   content: "";
   position: absolute;
@@ -67,17 +67,15 @@ h1, h2, h3, h4, h5 {
   z-index: 2;
 }
 
-/* =============================== */
-/* Wrapper testo titolo + sottotitolo + description in colonna */
+/* Wrapper testo */
 .quarto-title-text {
   display: flex;
-  flex-direction: column;  /* impila verticalmente */
+  flex-direction: column;
   gap: 0.3rem;
-  max-width: 800px;        /* larghezza massima per leggibilità */
+  max-width: 800px;
 }
 
-/* =============================== */
-/* Stile titolo principale */
+/* Titolo principale */
 .quarto-title-block h1.title {
   font-family: 'Anton', sans-serif;
   color: #BA1212;
@@ -87,30 +85,25 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 0.2rem;
 }
 
-/* =============================== */
-/* Stile description (testo sotto sottotitolo) */
+/* Description */
 .description {
   font-family: Arial, sans-serif;
   font-size: 1rem;
   color: #444;
   margin-top: 0.5rem;
-  /* importante: forziamo la description a stare sotto con block */
   display: block;
 }
 
-/* =============================== */
-/* Nasconde i link "other formats" */
+/* Nasconde link "other formats" */
 .quarto-navigation-tools {
   display: none !important;
 }
 
-/* =============================== */
-/* Stile copyright */
+/* Copyright */
 .copyright {
   display: block !important;
-  text-align: left !important;
+  text-align: center !important;
   margin-top: 1rem !important;
-  margin-left: 240px !important; /* allineamento con il testo del titolo */
   font-family: Arial, sans-serif;
   font-size: 0.8rem;
   color: #666;
@@ -126,49 +119,45 @@ h1, h2, h3, h4, h5 {
   text-decoration: underline;
 }
 
-/* Contenitore per lo scroll orizzontale delle tabelle */
+/* Tabelle scrollabili */
 body > table {
   display: block;
   overflow-x: auto;
   max-width: 100%;
-  -webkit-overflow-scrolling: touch; /* scroll fluido su mobile */
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Stile per tutte le tabelle */
 table {
-  min-width: 500px; /* larghezza minima per evitare spezzamenti indesiderati */
+  min-width: 500px;
   width: auto;
-  table-layout: auto; /* larghezza adattiva */
+  table-layout: auto;
   border-collapse: collapse;
 }
 
-/* Celle intestazioni e dati */
 th, td {
-  min-width: 90px; /* larghezza minima delle celle per una buona leggibilità */
-  white-space: normal; /* permette il wrapping del testo */
-  word-wrap: break-word; /* spezza parole troppo lunghe */
+  min-width: 90px;
+  white-space: normal;
+  word-wrap: break-word;
   padding: 6px 12px;
 }
 
 /* Dropdown menu soviet-style */
 .navbar .dropdown-menu {
-  background-color: #BA1212; /* rosso sovietico */
-  color: #fada5e;             /* giallo */
+  background-color: #BA1212;
+  color: #fada5e;
   border: none;
 }
 
-/* Link del dropdown */
 .navbar .dropdown-menu a {
   color: #fada5e;
 }
 
-/* Hover sugli elementi del menu */
 .navbar .dropdown-menu a:hover {
-  background-color: #9c0f0f; /* un rosso più scuro per hover */
-  color: #ffffff;            /* bianco per visibilità */
+  background-color: #9c0f0f;
+  color: #ffffff;
 }
 
-/* === BLOCCO CITAZIONE SEMPLICE SOVIET === */
+/* Blockquote sovietico */
 blockquote {
   border-left: 4px solid #BA1212;
   padding-left: 1rem;
@@ -181,16 +170,8 @@ blockquote {
   line-height: 1.5;
 }
 
-blockquote p {
-  margin: 0.2rem 0;
-}
-
-blockquote footer {
-  color: #BA1212;
-  font-weight: 400;
-  font-size: 0.9rem;
-  margin-top: 0.3rem;
-}
+blockquote p { margin: 0.2rem 0; }
+blockquote footer { color: #BA1212; font-weight: 400; font-size: 0.9rem; margin-top: 0.3rem; }
 
 /* Callout sovietico */
 .callout-warning {
@@ -210,6 +191,82 @@ blockquote footer {
   letter-spacing: 0.5px;
 }
 
-.callout-warning p:last-child {
-  margin-bottom: 0;
+.callout-warning p:last-child { margin-bottom: 0; }
+
+/* =============================== */
+/* BLOCCO SEARCH SOVIET STYLE */
+
+/* Bordo rosso form di ricerca */
+.aa-Form {
+  border-color: #BA1212 !important; /* MODIFICATO: era blu, ora rosso sovietico */
+  color: #BA1212 !important;
+}
+
+/* Bordo rosso focus */
+.aa-Form:focus-within {
+  box-shadow: 0 0 0 1px #BA1212 !important; /* MODIFICATO */
+  border-color: #BA1212 !important;        /* MODIFICATO */
+}
+
+/* Pulsante cancella */
+.aa-DetachedCancelButton:hover {
+  box-shadow: 0 0 0 1px #BA1212 !important; /* MODIFICATO */
+}
+
+/* Box risultato selezionato */
+li.aa-Item[aria-selected="true"] .search-item {
+  background-color: #BA1212 !important; /* MODIFICATO */
+  color: #ffffff !important;
+  border: 1px solid #BA1212 !important;
+}
+
+/* Titolo, testo e section del box selezionato */
+li.aa-Item[aria-selected="true"] .search-result-title-container,
+li.aa-Item[aria-selected="true"] .search-result-text-container,
+li.aa-Item[aria-selected="true"] .search-result-text,
+li.aa-Item[aria-selected="true"] .search-result-section {
+  background-color: #BA1212 !important; /* MODIFICATO */
+  color: #ffffff !important;
+}
+
+/* Box non selezionato */
+li.aa-Item[aria-selected="false"] .search-item {
+  background-color: #ffffff !important;
+  color: #BA1212 !important;
+}
+
+/* Evidenziazione testo trovato */
+mark.search-match {
+  background-color: #660000 !important; /* MODIFICATO */
+  color: #ffffff !important;           /* MODIFICATO */
+}
+
+/* Input di ricerca */
+#quarto-search input {
+  color: #BA1212 !important;           /* MODIFICATO */
+  border-color: #BA1212 !important;    /* MODIFICATO */
+}
+
+#quarto-search input::placeholder {
+  color: #BA1212 !important;           /* MODIFICATO */
+  opacity: 0.8;
+}
+
+/* Selezione testo col mouse */
+::selection {
+  background-color: #BA1212; /* MODIFICATO */
+  color: white;
+}
+
+/* =============================== */
+/* Colore URL nel contenuto */
+main a, .content a {
+  color: #BA1212 !important;        /* rosso sovietico */
+  text-decoration: none !important; /* rimuove sottolineatura di default */
+}
+
+main a:hover, .content a:hover {
+  color: #ffffff !important;        /* bianco su hover */
+  background-color: #BA1212 !important; /* evidenzia il link selezionato */
+  text-decoration: underline !important; /* opzionale */
 }
