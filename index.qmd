@@ -63,19 +63,34 @@ Le fasi principali del processo sono:
 - Produzione automatica dei report provinciali in formato HTML.
 - Pubblicazione dei bollettini aggiornati su GitHub Pages.
 
-::: {.callout-warning icon=false}
+::: {.callout-warning}
 
 ## Attenzione
 
 Compagno, ricordati che questo progetto è solo dimostrativo.  
-Se desideri consultare i dati ufficiali, rivolgiti ai [bollettini ufficiali di ARPA Emilia-Romagna](https://www.arpae.it/it/temi-ambientali/aria/dati-qualita-aria).  
+Se desideri consultare i dati ufficiali, rivolgiti ai [bollettini di ARPA Emilia-Romagna](https://www.arpae.it/it/temi-ambientali/aria/dati-qualita-aria).  
 
 L'obiettivo è mostrare la potenza di `R`, `Quarto` e dell'automazione open source!
 
 :::
 
+```{=html}
+  ```{r}
+  #| label: last_updated
+  #| output: asis
+  
+  # Per esecuzione in locale  
+  if (nzchar(Sys.getenv("BUILD_TIMESTAMP")) == FALSE) {
+    Sys.setenv(BUILD_TIMESTAMP = format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"))
+  }
+  
+  mostra_data_build(Sys.getenv("BUILD_TIMESTAMP"))
+  
+  ```
+```
 
 
+---
 ```{=html}
 <footer class="copyright">
   &copy; 2025 Andrea Bazzano — <a href="https://www.linkedin.com/in/andreabazzano/" target="_blank">LinkedIn</a> | <a href="https://github.com/andreabz" target="_blank">GitHub</a> — Licenza CC-SA

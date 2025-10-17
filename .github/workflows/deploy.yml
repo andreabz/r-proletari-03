@@ -3,8 +3,8 @@ on:
   push:
     branches: main
   schedule:
-    # ogni giorno alle 02:00 (ora UTC, quindi 04:00 italiane)
-    - cron: '0 2 * * *'
+    # ogni giorno alle 02:07 italiane
+    - cron: '7 0 * * *'
 
 name: Quarto Publish
 
@@ -13,12 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    env:
-      BUILD_TIMESTAMP: ${{ github.run_started_at }}
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        
+      - name: Set build timestamp
+        run: |
+          echo "BUILD_TIMESTAMP=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV
 
       - name: Ubuntu dependencies
         run: |
