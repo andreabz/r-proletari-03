@@ -107,9 +107,19 @@ mostra_data_build <- function(build_time) {
   
   if (nzchar(build_time)) {
     # Converte la stringa ISO in oggetto POSIXct
-    build_time <- as.POSIXct(build_time, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
+    build_time <- as.POSIXct(build_time,
+                             format = "%Y-%m-%dT%H:%M:%SZ",
+                             tz = "UTC")
+    
+    # Imposta il fuso orario italiano e locale italiano per il mese
+    old_locale <- Sys.getlocale("LC_TIME")       # salva locale corrente
+    Sys.setlocale("LC_TIME", "it_IT.UTF-8")      # locale italiano
+    
     build_time_local <- format(build_time, "%d %B %Y, ore %H:%M",
-                               tz = "Europe/Rome", usetz = TRUE)
+                               tz="Europe/Rome",
+                               usetz = TRUE)
+    
+    Sys.setlocale("LC_TIME", old_locale)         # ripristina locale originale
     
     # Stampa HTML formattato con data leggibile
     cat(
