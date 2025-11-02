@@ -52,7 +52,7 @@ provincia <- carica_provincia(sigla = prov_sigla)
 dati_api <- scarica_dati_sql(
   dataset_id = "4dc855a1-6298-4b71-a1ae-d80693d43dcb",
   stazioni_selezionate = anagrafiche$stazioni_selezionate,
-  data_selezionata = params$data
+  data_selezionata = data_selezionata
 )
 
 # 3. Merge con anagrafiche
