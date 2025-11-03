@@ -4,7 +4,7 @@ logo: www/rproletari.png
 subtitle: "Bollettino della qualità dell'aria per il glorioso popolo lavoratore"
 params:
   provincia: "RE"
-  data: "06/09/2025"
+  data: "31/10/2025"
 ---
 
 ```{r}
