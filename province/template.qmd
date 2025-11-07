@@ -3,8 +3,8 @@ title: "R per proletari"
 logo: www/rproletari.png
 subtitle: "Bollettino della qualità dell'aria per il glorioso popolo lavoratore"
 params:
-  provincia: "RE"
-  data: "31/10/2025"
+  provincia: NA
+  data: NA
 ---
 
 ```{r}
@@ -33,8 +33,12 @@ source(here("R", "report_helper.R"))
 #| label: variabili
 
 # definisco alcune variabili globali utilizzate dal progetto
-prov_sigla <- params$provincia                        # sigla di Reggio Emilia
-data_selezionata <- params$data                       # data scelta
+prov_sigla <- iflese(is.na(params$provincia),
+                     "RE",
+                     params$provincia)                  # sigla di Reggio Emilia
+data_selezionata <- ifelse(is.na(params$data), 
+                           format(Sys.Date()-5, "%d/%m/%Y"),
+                           params$data)               # data scelta
 dataset_id <- "4dc855a1-6298-4b71-a1ae-d80693d43dcb"  # ID della risorsa CKAN
 limit <- 1000                                         # records per chiamata all'API
 log_file <- here("data", "log_download.csv")          # file di log
