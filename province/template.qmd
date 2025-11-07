@@ -33,7 +33,7 @@ source(here("R", "report_helper.R"))
 #| label: variabili
 
 # definisco alcune variabili globali utilizzate dal progetto
-prov_sigla <- iflese(is.na(params$provincia),
+prov_sigla <- ifelse(is.na(params$provincia),
                      "RE",
                      params$provincia)                  # sigla di Reggio Emilia
 data_selezionata <- ifelse(is.na(params$data), 
